@@ -151,7 +151,7 @@ function 삽입값들어갈인덱스(정렬배열, 삽입값) {
 }
 console.log("정렬배열", 정렬배열);
 
-//다시 정리한
+// 다시 정리한
 let arr = [5, 10, 66, 77, 54, 32, 11, 15];
 let sortedArr = [];
 let size = arr.length;
@@ -172,7 +172,7 @@ function findIndex(sortedArr, insert) {
 }
 console.log(sortedArr);
 
-//병합정렬(분할, 정복)
+// 병합정렬(분할, 정복)
 let arr = [5, 10, 66, 77, 54, 32, 11, 15];
 function Merge(arr) {
   let result = [];
@@ -203,4 +203,29 @@ function Merge(arr) {
 }
 console.log(Merge(arr));
 
-//퀴정렬
+//퀴정렬 : 피봇(기준점)
+//원소가 하나일때는 재귀를 실행하지 않는다.
+
+let arr = [66, 77, 54, 32, 10, 5, 11, 15];
+
+function quick(arr) {
+    let size = arr.length;
+    if(size <= 1) {
+        return arr;
+    }
+
+    let pivot = [arr.shift()];
+    let groupOne = [];
+    let groupTwo = [];
+
+    for(let i in arr) {
+        if(arr[i] < pivot) {
+            groupOne.push(arr[i]);
+        } else {
+            groupTwo.push(arr[i]);
+        }
+    }
+    console.log(`groupOne: ${groupOne}\n groupTwo: ${groupTwo}\n pivot: ${pivot}`);
+    return quick(groupOne).concat(pivot, quick(groupTwo))
+}
+console.log(quick(arr));
