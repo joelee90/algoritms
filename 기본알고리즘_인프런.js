@@ -229,3 +229,23 @@ function quick(arr) {
     return quick(groupOne).concat(pivot, quick(groupTwo))
 }
 console.log(quick(arr));
+
+// 다시정리
+let size = arr.length;
+
+function quick(arr) {
+    if(arr.length <= 1) {
+        return arr;
+    }
+    let pivot = [arr.shift()];
+    let left = [];
+    let right = [];
+    for(let i of arr) {
+        if(arr[i] < pivot) {
+            left.push(arr[i]);
+        } else {
+            push.push(arr[i]);
+        }
+    }
+    return quick(left).concat(pivot, quick(right));
+}
