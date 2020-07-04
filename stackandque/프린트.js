@@ -1,5 +1,5 @@
-let priorities = [2, 1, 3, 2];
-let location = 2;
+let priorities = [1, 1, 9, 1, 1, 1];
+let location = 0;
 
 function solution(priorities, location) {
   let answer = 0;
@@ -16,5 +16,4 @@ function solution(priorities, location) {
     }
   }
 }
-
 solution(priorities, location);
